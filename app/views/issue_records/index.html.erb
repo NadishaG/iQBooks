@@ -1,0 +1,12 @@
+<div class='issue_records'>
+	<p class='lead'>Issue Records</p>
+	<%@issue_records.each do |_issue_record|%>
+	<b>
+		<span id='I_<%=_issue_record.id%>' class='col-lg-12'>
+			<%=link_to "#{_issue_record.member.name}",_issue_record.member%> issued 
+			<%=link_to "#{_issue_record.book.title}",_issue_record.book%>
+			<%=link_to "Return", issue_record_path(_issue_record) ,:method=>:delete,:class =>'btn btn-primary',:remote=>true%><br/>
+		</span>
+	</b>
+	<%end%>
+</div>

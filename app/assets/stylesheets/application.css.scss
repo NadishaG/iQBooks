@@ -1,0 +1,388 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+ /* ================== begin of all imported and override css ================*/
+ 
+ @import "bootstrap_and_overrides.css.less";
+ 
+/* ================== end of all imported css ================*/
+body{
+	font-family:helvetica !important;
+}
+#main_body{
+	height: 1024px;
+	position: relative;
+	top: -36px;
+	background: url("paneling.jpg") repeat transparent;
+    .bookshelf{
+				 background: url("book_shelf.png") no-repeat scroll 0 -23px transparent;
+			    display: inline-block;
+			    height: 748px;
+			    width: 1024px;
+			    margin:0 0 50px 0;
+			    position: relative;
+					top: 10px;
+			   	.book_image{
+			    	height: 145px;
+			    	 overflow: hidden;
+			    	 width:100%;
+			    	 .carousel-inner{
+									.item{
+										.row-fluid{
+											a{
+												  float: left;
+											    position: relative;
+											    width: 96px;
+											    margin: 25px 10px 10px 21px;
+											    img{
+											    	  float: left;
+													    height: 100px;
+													    margin: 0;
+													    width: 100%;
+											    }
+												.rating{
+															position:absolute;
+															float: left;
+															left:0;
+															background:#000;
+															display:none;
+															top: 80px;
+															width: 96px;
+															height: 20px;
+													}
+
+												.new{
+													position: absolute;
+													background: #d35400;
+													right: 0;
+													width: 41px;
+													height: 19px;
+													line-height: 19px;
+												}
+												&:hover .rating{
+													display:block;
+												}	
+											}
+
+										}
+									}
+								}
+							}
+					.third_row{
+						margin-top: -28px;
+					}
+					.fourth_row{
+						margin-top: -5px;
+					}
+			}	
+}
+.login_page{
+	position:relative;
+	top: 0px;
+}
+
+.quovantis{
+			float: left;
+			height: 71px;
+			width: 156px;
+			position: relative;
+			top: -10px;
+			left: -7px;
+			z-index: 2;
+			}
+			.navbar{
+				margin: 0 !important;
+				width: 100%;
+				position: relative;
+				top: -72px;
+				height: 5px;
+			.navbar-inner{
+					background:#C0392B;
+					a{
+									color:#fff;
+									text-shadow:none;
+								}
+					.container {
+					position: relative;
+					left: 56px;
+					width: 91%;
+					 .search-query{
+					 	width: 243%;
+					 }
+						ul{
+							.active{
+									a{
+										background:#E74C3C;
+										color:#fff;
+										box-shadow:none;
+									}
+								}
+						}
+					}
+				}
+			}
+
+.library{
+	img{
+		height: 87px;
+	 	width: 347px;
+	}
+	.logged{
+		float:right;
+	}
+}
+#login{
+	float: left;
+	left: 377px;
+	top: 50px !important;
+}
+
+#register{
+	float: right;
+	left: 377px;
+	top: 50px !important;
+}
+
+.admin{
+position: relative;
+	top : 50px;
+}
+
+.book{
+		position: relative;
+		top: 34px;
+		color: #fff;
+		a{
+		 color: #fff;
+		}
+
+	.demand_book{
+		float: right;
+		position: relative;
+		top : 63px;
+		left: -79px;
+	}
+
+	.member_image{
+		    img{
+		 height: 285px;
+		 width: 250px;
+		 right: 18px;
+		 top: 54px;
+		 position: absolute;
+		 float: left;
+		 left: 58px;
+		 border: 3px solid;
+		}
+	}	
+	.bigBook_image{	
+		.col-lg-12{
+			margin: 3px 0 0;
+			width: 81%;
+			background-color: #666;
+			left: 28px;
+			position: relative;
+		 }
+			img{
+			 height: 400px;
+			 width: 300px;
+			 right: 18px;
+			 top: 54px;
+			 position: absolute;
+			 float: left;
+			 left: 58px;
+			}
+}
+	.review{
+		border-bottom: 1px solid;
+		padding-bottom: 23px;
+		.col-lg-2{
+				width: 25%;	
+		}
+	}
+	.book_detail{
+	 font-size : 15px;
+	 .col-lg-12{
+			margin: 10px 0 0;
+    	width: 100%;
+    	background-color: #666;
+		}
+	}
+}
+	.book_description{
+			position: relative;
+			margin: 30px;
+			float :left;
+			min-height: 181px;
+			max-height: 182px;
+			overflow-y: scroll;
+			width: 95%;
+	}
+
+	.book_review{
+		position: relative;
+    top: 25px;
+		 img {
+		    border-left: 3px solid transparent;
+		    height: 60px;
+		    width: 60px;
+		    float: left;
+		    margin-right: 8px;
+  		}	
+  	.reviewer{
+  		float: left;
+			margin-left: 20px;
+  	}	
+  	.review{
+	  	width: 90%;
+			float: left;
+			margin-left: 91px;
+			margin-top: -20px;
+			text-align: left;
+			border-bottom: 1px solid;
+			padding-bottom: 15px;
+  	}
+	}
+
+	.related_books{
+			overflow-y: scroll;
+		 	max-height: 400px;
+		a{
+		img{
+			height: 120px;
+		  width: 100px;
+		  margin: 23px;
+		}
+		.image_highlight{
+			border: 2px solid;
+		}
+		
+		&:hover .image_highlight{
+			display : block;
+		}
+	}
+}
+
+.complete_star{
+				  background:url("star.gif") repeat scroll 0px 0px transparent;
+				  float: left;
+			    height: 16px;
+	    		width: 19px;
+			}
+.empty_star{
+					background:url("star.gif") no-repeat scroll 0px -32px transparent;
+					float: left;
+			    height: 16px;
+			    width: 19px;
+		}
+.red_star{
+	  background:url("star.gif") no-repeat scroll 0px -48px transparent;
+	  float: left;
+		height: 16px;
+		width: 12%;
+	}
+
+.unlike{
+	background: url("like-unlike-sprite.png") no-repeat scroll 0px -35px transparent;
+	position: relative;
+	height: 22px;
+	width: 23px;
+	display: inline-block;
+	left: 15px;	
+}	
+
+.like{
+	background: url("like-unlike-sprite.png") no-repeat scroll 0px -5px transparent;
+	position: relative;
+	height: 22px;
+	width: 23px;
+	display: inline-block;
+	left: 15px;	
+}	
+
+.like_count{
+	top: 2px;
+	position: relative;
+	float: left;
+	left: 51PX;
+	margin-right: 12PX;
+}
+	
+.issue_records{
+	color: #fff;
+	a{
+	color: #34495E;
+	}
+	.col-lg-12{
+	  float: left;
+		width: 51%;
+		border-bottom: 1px solid;
+		margin-bottom: 24px;
+	}
+}
+
+	#book_mini_detail{
+		width: 50% !important;
+		color: #000;
+		.book{
+			top: 20px;
+		}
+		a{
+		color: #000;
+		}
+		.like_count{
+			color: #000 !important;
+		}
+	}	
+	
+	#book_rating{
+		display: block;
+		width: 11%;
+		height: 40px;
+		.rating{
+			position: relative;
+			top: 11px;
+			left: 21px;
+		}
+	}
+
+.new_review{
+		position: relative;
+    top: 30px;
+    float: left;
+    left: 87px;
+    #book_review_review{
+    	width: 120%
+    }
+   .btn{
+    position: relative;
+		top: -31px;
+		left: 148px;
+		float: right;
+   } 
+}
+
+.tagline{
+	#member_tagline{
+		position: relative;
+		height: 11px;
+	}
+	.btn{
+		float: right;
+		top: -31px;
+		position: relative;
+		left: 143px;
+		height: 19px;
+	}
+}

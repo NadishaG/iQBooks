@@ -1,0 +1,51 @@
+<div class='book'>
+	<div class='span4 member_image'>
+		<%=default_image(@member,true,'member')%>
+	</div>
+	<div class='span6 row'>
+		<div class='review'>
+			<p class='lead'><%=@member.name%></p>
+			<div class="col-lg-2 pull-left">
+				<span class='tagline'>
+					<i><%= link_to "\" #{@member.tagline} \""|| "\"There is no tagline\"" , edit_member_path(@member),:class=>'pull-left',:remote => true %></i>
+				</span>
+			</div>
+			<div class="col-lg-2 pull-right"><%=pluralize(@member.member_book_reviews.count, "Written Review")%></div>
+		</div>
+		<div class="book_detail">
+			<div class="col-lg-12 pull-left title"><%="Role:  #{@member.role}"%></div>
+			<div class="col-lg-12 pull-left title"><%="Joining Date:  #{@member.joining_date}"%></div>
+			<div class="col-lg-12 pull-left title"><%="Project:  #{@member.project||'None'}"%></div>
+		</div>
+		<div class="book_description">
+		<p class='lead'>Borrowed Books</p>
+			<%@member.issue_records.each do |_issue_record|%>
+			<%=link_to default_image(_issue_record.book,false,'related_books'),_issue_record.book%>
+			<% end %>
+		</div>
+	</div>
+	<div class='span2 related_books'>
+		<p class='lead'>Recommended Books</p>
+		<%@liked_books.each do |liked_book|%>
+		<%=link_to liked_book.issue_records.present? ? default_image(liked_book,true,'related_books') : default_image(liked_book,false,'related_books'),liked_book%>
+		<% end %>
+	</div>
+	<div class='span8 book_review'>
+		<p class='lead'>Book Reviews</p>
+		<%=render :partial=>'/books/book_review',:collection=> @member.member_book_reviews,:locals=>{:from=>'member'}%>
+	</div>
+	<div class='span2 demand_book'>
+		<%if @member==current_member && @member.is_admin%>
+		<%=link_to "Add Book to Library",new_book_path ,:class =>'btn btn-inverse',:remote =>true%><br/>
+		<%=link_to "Issue a Book",new_issue_record_path ,:class =>'btn btn-inverse',:remote =>true%></br>
+		<%=link_to "Issue Records", issue_records_path ,:class =>'btn btn-inverse'%><br/>
+		<%= link_to "Demand a Book", new_book_path(:demand=>true),:class=>'btn btn-inverse', :remote=> true%>
+		<%elsif @member==current_member%>
+		<%= link_to "Demand a Book", new_book_path(:demand=>true),:class=>'btn btn-inverse',:remote => true%>
+		<%end%>
+	</div>
+</div>
+
+<div id='new_book' class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true"></div>
+
+<div id='new_issue_record' class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true"></div>

@@ -1,0 +1,2 @@
+$('#book_rating').html("<%=escape_javascript(render :partial => 'rating' ,:locals=>{:book=>@book})%>")
+$('#book_rating').modal()

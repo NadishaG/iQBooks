@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  book: 
+  user: 
+  due_date: 2013-06-09
+
+two:
+  book: 
+  user: 
+  due_date: 2013-06-09

@@ -1,0 +1,2 @@
+$('#new_book').html("<%=escape_javascript(render :partial => 'books/new' ,:locals=>{:demand=>@demand})%>")
+$('#new_book').modal()

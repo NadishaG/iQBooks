@@ -1,0 +1,17 @@
+<%if @book_review_change=='rating'%>
+$('#book_rating').modal('hide')
+$('.current_rating').html("<%=escape_javascript(render :partial=>'/books/current_rating',:locals=>{:rating=>@rating})%>")
+$('.current_rating').append('<span><%= link_to "Rate It!", rating_path(:book_id=>@book.id),:remote=>true%></span>')
+window.location.href= '/books/'+"<%=@book.title%>"
+<%elsif @book_review_change=='must_read'%>
+$('.like_count').html("<%=escape_javascript(pluralize(@book_review.book.must_reads.count,'Like'))%>");
+$('.unlike').addClass('like').removeClass('unlike');
+<% else %>
+<%if @book.current_book_reviews.present?%>
+$('.review_<%=@book_review.id%>').html("<%=escape_javascript(render :partial=>'new_review' , :locals=>{:book_id=>@book.id})%>");
+<%else%>
+$('.new_review').html("<%=escape_javascript(render :partial=>'new_review' , :locals=>{:book_id=>@book.id})%>");
+$('.new_review').removeClass('hidden')
+<%end%>
+$('#main_body').scrollTo('.new_review');
+<% end %>

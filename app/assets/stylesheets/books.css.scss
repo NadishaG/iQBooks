@@ -1,0 +1,42 @@
+// Place all the styles related to the books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* Removes the default 20px margin and creates some padding space for the indicators and controls */
+	.bookshelf .carousel {
+		margin-bottom: 0;
+		padding: 0 55px;
+		left: -55px;
+    line-height: 1;
+    margin:0;
+    position: relative;
+    top: -2px;
+	}
+	/* Reposition the controls slightly */
+	.bookshelf .carousel-control {
+		left: 2px;
+		top:48%;
+	}
+	.bookshelf .carousel-control.right {
+		right: 2px;
+		 left: auto;
+	}
+	/* Changes the position of the indicators */
+	.carousel-indicators {
+		right: 50%;
+		top: auto;
+		bottom: 0px;
+		margin-right: -19px;
+	}
+	/* Changes the colour of the indicators */
+	.carousel-indicators li {
+		background: #c0c0c0;
+	}
+	.carousel-indicators .active {
+		background: #333333;
+	}
+
+.issued_book{
+	opacity: 0.4;
+}

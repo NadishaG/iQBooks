@@ -1,0 +1,68 @@
+
+<section>				
+	<div id="container_demo" >
+		<!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+		<a class="hiddenanchor" id="toregister"></a>
+		<a class="hiddenanchor" id="tologin"></a>
+		<div id="wrapper">
+			<div id="login" class="animate form">
+				<!-- <form  action="mysuperscript.php" autocomplete="on">  -->
+				<h1>Log in</h1> 
+				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+				<p> 
+					<label for="email" class="uname" data-icon="u" >Email ID</label>
+					<%= f.email_field :email, :autofocus => true ,:id=>"username",:placeholder=>"mymail@quovantis.com",:required=>true%>
+				</p>
+				<p> 
+					<label for="password" class="youpasswd" data-icon="p"> Your password </label>
+					<%= f.password_field :password ,:autofocus => true ,:id=>"password",:placeholder=>"Quovantis",:required=>true%>
+				</p>
+				<p class="keeplogin"> 
+					<% if devise_mapping.rememberable? -%>
+					<di><%= f.check_box :remember_me ,:id=>"loginkeeping"%> 
+						<% end -%>
+						<label for="remember_me">Remember Me</label>
+					</p>
+					<p class="login button"> 
+						<%= f.submit "Sign in" %> 
+					</p>
+					<p class="change_link">
+						Not a member yet ?
+						<a href="#toregister" class="to_register">Join us</a>
+					</p>
+					<% end %>
+					<!-- </form> -->
+				</div>
+
+				<div id="register" class="animate form">
+					<!-- <form  action="mysuperscript.php" autocomplete="on">  -->
+					<h1> Sign up </h1> 
+					<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+					<%= devise_error_messages! %>
+					<p> 
+						<label for="email" class="youmail" data-icon="e" > Your email</label>
+						<%= f.email_field :email, :autofocus => true ,:id=>"emailsignup",:placeholder=>"mymail@quovantis.com",:required=>true%>
+					</p>
+					<p> 
+						<label for="password" class="youpasswd" data-icon="p">Choose Your password </label>
+						<%= f.password_field :password ,:id=>"passwordsignup",:placeholder=>"8 characters*",:required=>true%>
+					</p>
+					<p> 
+						<label for="password_confirmation" class="youpasswd" data-icon="p">Please confirm your password </label>
+						<%= f.password_field :password_confirmation ,:id=>"passwordsignup_confirm",:placeholder=>"same as above*",:required=>true%>
+					</p>
+					<p class="signin button"> 
+						<%= f.submit "Sign up" %>
+					</p>
+					<p class="change_link">  
+						Already a member ?
+						<a href="#tologin" class="to_register"> Go and log in </a>
+					</p>
+					<% end %>
+					<!-- </form> -->
+				</div>
+
+			</div>
+		</div>  
+	</section>
+	

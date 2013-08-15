@@ -1,0 +1,32 @@
+<div class='book'>
+	<div class='span4 bigBook_image'>
+		<%= link_to "Show Details", book ,:class=>'btn pull-left'%>
+		<%=link_to "Issue",new_issue_record_path ,:class =>'btn pull-left',:remote =>true if current_member.is_admin%>
+	</div>
+	<div class='span6 row'>
+		<div class='review'>
+			<p class='lead'><%=book.title%></p>
+			<div class="col-lg-2 pull-left">
+				<%=render :partial=>'current_rating' ,:locals=>{:rating=>book.current_rating}%>
+				<!-- <span><%= link_to "Rate It!",""%></span> -->
+			</div>
+			<div class='col-lg-2 pull-left must_read'>
+				<span><%= like_path(book_review,like,book)%></span>
+				<span class='like_count'><%=pluralize(book.must_reads.count, "Like")%></span>
+			</div>
+			<div class="col-lg-2 pull-left"><%=pluralize(book.book_reviews.count, "Review")%></div>
+		</div>
+		<div class="book_detail">
+			<div class="col-lg-12 pull-left title"><%="Author:  #{book.author}"%></div>
+			<div class="col-lg-12 pull-left title"><%="Category:  #{book.category}"%></div>
+			<div class="col-lg-12 pull-left title"><%="Owner:  #{book.member||'Library'}"%></div>
+			<div class="col-lg-12 pull-left title"><%="Copies Left: #{book.copy-book.issue_records.count}"%></div>
+			<%if issuer.present?%>
+		<div class="col-lg-12 pull-left title">Issued By: <%=link_to book.issue_records.first.member.name,book.issue_records.first.member%></div>
+		<div class="col-lg-12 pull-left title"><%="Return Date:  #{book.issue_records.first.due_date}"%></div>
+		<%end%>
+		</div>
+		<div class="book_description">
+			<%=book.description%>
+		</div>
+	</div>

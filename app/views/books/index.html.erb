@@ -1,0 +1,22 @@
+<div class='bookshelf'>
+	<div id='myCarousel' class='carousel slide book_image'>
+		<div class="programming">
+			<%= render :partial => "book_carousel" , :locals =>{:books => @books_programming,:book_count=>@section1,:row_no=>nil}%>
+		</div>
+	</div>
+	<div id='myCarousel_1' class='carousel slide book_image'>
+		<%= render :partial => "book_carousel" , :locals =>{:books => @books_software_analysis,:book_count=>@section2,:row_no=>1}%>
+	</div>
+	<div id='myCarousel_2' class='carousel slide book_image'>
+		<%= render :partial => "book_carousel" , :locals =>{:books => @books_interface_design,:book_count=>@section3,:row_no=>2}%>
+	</div>
+	<div id='myCarousel_3' class='carousel slide book_image'>
+		<%= render :partial => "book_carousel" , :locals =>{:books => @books_management,:book_count=>@section4,:row_no=>3}%>
+	</div>
+	<div id='myCarousel_4' class='carousel slide book_image'>
+		<%= render :partial => "book_carousel" , :locals =>{:books => @books_general,:book_count=>@section5,:row_no=>4}%>
+	</div>
+</div>
+
+<div id='book_mini_detail' class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true"></div>
+

@@ -1,0 +1,55 @@
+<div class='book'>
+	<div class='span4 bigBook_image'>
+		<%if @issuer.present?%>
+		<div class="col-lg-12 pull-left title">Issued By: <%=link_to @book.issue_records.first.member.name,@book.issue_records.first.member%></div>
+		<div class="col-lg-12 pull-left title"><%="Return Date:  #{@book.issue_records.first.due_date}"%></div>
+		<%end%>
+		<%=(@book.copy-@book.issue_records.count)==0 ? default_image(@book,true,'book') : default_image(@book,false,'book')%>
+	</div>
+	<div class='span6 row'>
+		<div class='review'>
+			<p class='lead'><%=@book.title%></p>
+			<div class="col-lg-2 pull-left current_rating">
+				<%=render :partial=>'current_rating',:locals=>{:rating=>@rating}%>
+				<span><%= link_to "Rate It!", rating_path(:book_id=>@book.id),:remote=>true%></span>
+			</div>
+			<div class='col-lg-2 pull-left must_read'>
+				<span>
+				<%= like_path(@book_review,@like,@book)%>
+				</span>
+				<span class='like_count'><%=pluralize(@book.must_reads.count, "Like")%></span>
+			</div>
+			<div class="col-lg-2 pull-left"><%=pluralize(@book.current_book_reviews.count, "Review")%></div>
+			<div class="col-lg-2 pull-left">
+				<%if @book_review%>
+				<%=link_to "Write a Review", edit_book_review_path(@book_review,:book_id=>@book.id,:review=>'review'),:remote=>true %>
+				<%else%>
+				<%=link_to "Write a Review", new_book_review_path(:book_id=>@book.id,:review=>'review'),:remote=>true%>
+				<%end%>
+			</div>
+		</div>
+		<div class="book_detail">
+			<div class="col-lg-12 pull-left title"><%="Author:  #{@book.author}"%></div>
+			<div class="col-lg-12 pull-left title"><%="Category:  #{@book.category}"%></div>
+			<div class="col-lg-12 pull-left title"><%="Owner:  #{@book.member||'Library'}"%></div>
+			<div class="col-lg-12 pull-left title"><%="Copies Left: #{@book.copy-@book.issue_records.count}"%></div>
+		</div>
+		<div class="book_description">
+			<%=@book.description%>
+		</div>
+	</div>
+	<div class='span2 related_books'>
+		<p class='lead'>Other Books by the Author</p>
+		<%@other_books.each do |other_book|%>
+		<%=link_to other_book.issue_records.present? ? default_image(other_book,true,'related_books') : default_image(other_book,false,'related_books'),other_book%>
+		<% end %>
+	</div>
+	<div class='span8 book_review'>
+		<p class='lead'>Book Reviews</p>
+		<%=render :partial=>'book_review',:collection=> @book.current_book_reviews,:locals=>{:from=>'book'}%>
+		<div class= 'new_review hidden'>
+		</div>
+	</div>
+</div>
+
+<div id='book_rating' class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true"></div>

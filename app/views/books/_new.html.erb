@@ -1,0 +1,14 @@
+<%=form_for @book do |f|%>
+<%=f.label :title%>
+<%=f.text_field :title%>
+<%=f.label :author%>
+<%=f.text_field :author%>
+<%=f.label :image%>
+<%=f.file_field :image%>
+<%=f.label :copy unless demand%>
+<%=f.text_field :copy unless demand%>
+<%=f.text_field :status, :value=>"On-Demand" if demand%>
+<%=f.text_field :status, :value=>"Available" unless demand%>
+<%=f.submit "Submit"%>
+<%end%>
+<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

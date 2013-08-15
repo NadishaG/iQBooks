@@ -1,0 +1,10 @@
+<%=default_image(book_review.book,false,'book') if from=='member'%>
+<%=default_image(book_review.member,true,'member') if from=='book'%>
+<p class='reviewer'>
+	<%=link_to "Written By #{book_review.member.name}", book_review.member if from=='book'%>
+	<%=link_to "Written On - #{book_review.book.title}" , book_review.book if from=='member'%>
+</p><br/>
+<p class=" review review_<%=book_review.id%>">
+	<%=book_review.review%>
+</p>
+

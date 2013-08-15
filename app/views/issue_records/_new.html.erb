@@ -1,0 +1,8 @@
+<%=form_for @issue_record do |f|%>
+<%=f.label :book_id%>
+<%=f.select :book_id,grouped_options_for_select(grouped_options_for_books, selected_key = @book.try(:id))%>
+<%=f.label :member_id%>
+<%=f.select :member_id ,grouped_options_for_select(grouped_options_for_members, selected_key = @book.try(:id))%>
+<%=f.submit "Submit"%>
+<%end%>
+<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

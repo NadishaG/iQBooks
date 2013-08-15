@@ -1,0 +1,2 @@
+$('#book_mini_detail').html("<%=escape_javascript(render :partial => 'show',:locals=>{:book=>@book,:issuer=>@issuer,:book_review=>@book_review,:like=>@like})%>");
+$('#book_mini_detail').modal()

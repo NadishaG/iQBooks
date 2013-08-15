@@ -1,0 +1,48 @@
+<div class="carousel-inner">
+	<div class="item active">
+		<div class="row-fluid">
+			<%books[0..7].each do |book|%>
+			<a href="<%=book_path(book)%>" data-remote="true">
+				<%=(book.copy-book.issue_records.count)==0 ? default_image(book,true,'book') : default_image(book,false,'book')%>
+				<%=render :partial=>'current_rating' ,:locals=>{:rating=>book.current_rating}%>
+				<span class='new'>New</span>
+			</a>
+			<%end%>
+		</div>
+		<!--/row-fluid-->
+	</div><!--/item-->
+
+	<%j=8%>
+	<%_end =books.count%8-1%>
+
+	<%for i in 1..book_count%>
+
+	<div class="item">
+		<div class="row-fluid">
+			<%if i!=book_count%>
+			<%books[j..j+7].each do |book|%>
+			<a href="<%=book_path(book)%>" data-remote="true">
+				<%=(book.copy-book.issue_records.count)==0 ? default_image(book,true,'book') : default_image(book,false,'book')%>
+				<%=render :partial=>'current_rating',:locals=>{:rating=>book.current_rating}%><span class='new'>New</span>
+			</a>	
+			<%end%>
+			<%else%>
+			<%books[j..j+_end].each do |book|%>
+			<a href="<%=book_path(book)%>" data-remote="true">
+				<%=(book.copy-book.issue_records.count)==0 ? default_image(book,true,'book') : default_image(book,false,'book')%>
+				<%=render :partial=>'current_rating',:locals=>{:rating=>book.current_rating}%><span class='new'>New</span>
+			</a>	
+			<%end%>
+			<%end%>
+			<%j+=7%>
+		</div>
+	</div><!--/item-->
+	<%end%>
+</div><!--/carousel-inner-->
+<%if row_no%>
+<a class="left carousel-control" href="#myCarousel_<%=row_no%>" data-slide="prev">‹</a>
+<a class="right carousel-control" href="#myCarousel_<%=row_no%>" data-slide="next">›</a>
+<%else%>
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+<%end%>

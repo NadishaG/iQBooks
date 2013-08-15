@@ -1,0 +1,6 @@
+<%=form_for @book_review do |f|%>
+<%=f.text_area :review,:rows=>5%>
+<%=f.hidden_field :member_id, :value=>current_member.id%>
+<%=f.hidden_field :book_id , :value=>	book_id%>
+<%=f.submit "Post",:class=>'btn-inverse btn'%>
+<%end%>
