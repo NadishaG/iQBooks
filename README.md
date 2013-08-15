@@ -1,4 +1,4 @@
--home-nadisha-rails_projects-SMD
+iQBooks
 ================================
 
-SMD 
+Online Library App for Quovantis built on RoR.
